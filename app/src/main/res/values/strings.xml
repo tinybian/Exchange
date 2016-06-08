@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Exchanging</string>
+    <string name="action_settings_shop">我的小店</string>
+    <string name="action_settings_focus">我的关注</string>
+    <string name="action_settings_order">交换申请</string>
+    <string name="action_settings">设置</string>
+    <string name="search_default_text">搜索用户或商品</string>
+    <string name="search_btn_text">搜索</string>
+    <string name="cancel_favourite">取消关注</string>
+</resources>

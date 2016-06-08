@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fav_product_linearlayout"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginTop="10dp"
+    android:background="@color/colorListBackground">
+
+    <ImageView
+        android:id="@+id/fav_product_image"
+        android:src="@drawable/product10"
+        android:scaleType="centerCrop"
+        android:layout_width="110dp"
+        android:layout_height="100dp" />
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:id="@+id/fav_product_info_linearlayout"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="100dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/fav_product_name"
+                android:text="商品名 花姑娘"
+                android:textColor="@color/colorListText"
+                android:textSize="16sp"
+                android:padding="15dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="50dp"/>
+
+            <ImageView
+                android:id="@+id/fav_product_ispresent"
+                android:src="@drawable/present"
+                android:layout_gravity="top"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/fav_product_master_image"
+                android:src="@drawable/person1"
+                android:padding="5dp"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="50dp" />
+
+            <TextView
+                android:id="@+id/fav_product_master_name"
+                android:gravity="center_vertical"
+                android:text="物主 老妈妈"
+                android:textColor="@color/colorSelectedTab"
+                android:layout_weight="4"
+                android:layout_width="0dp"
+                android:layout_height="50dp" />
+
+            <Button
+                android:id="@+id/fav_product_cancel"
+                style="?android:attr/borderlessButtonStyle"
+                android:text="@string/cancel_favourite"
+                android:textSize="12sp"
+                android:textColor="@color/colorSelectedTab"
+                android:padding="0dp"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="50dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

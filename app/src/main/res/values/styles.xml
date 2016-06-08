@@ -1,0 +1,34 @@
+<resources>
+
+    <!--my theme-->
+    <style name="AppTheme" parent="AppTheme.Base">
+        <item name="toolbarStyle">@style/NoToolbar</item>
+        <item name="actionOverflowButtonStyle">@style/MyOverflowIcon</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--去掉toolbar左侧空白-->
+    <style name="NoToolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="contentInsetStart">0dp</item>
+    </style>
+
+    <!--更改toolbar的Overflow图标-->
+    <style name="MyOverflowIcon" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:src">@drawable/plus</item>
+        <item name="android:paddingRight">@dimen/action_bar_overflow_padding_right</item>
+    </style>
+    
+    <!--<style name="TabLayoutTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">-->
+        <!--<item name="android:textSize">30sp</item>-->
+        <!--<item name="android:textScaleX">3.00</item>-->
+    <!--</style>-->
+</resources>
