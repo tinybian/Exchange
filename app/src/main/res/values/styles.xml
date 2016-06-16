@@ -4,6 +4,7 @@
     <style name="AppTheme" parent="AppTheme.Base">
         <item name="toolbarStyle">@style/NoToolbar</item>
         <item name="actionOverflowButtonStyle">@style/MyOverflowIcon</item>
+        <item name="android:listDivider">@drawable/list_divider</item>
     </style>
 
     <!-- Base application theme. -->

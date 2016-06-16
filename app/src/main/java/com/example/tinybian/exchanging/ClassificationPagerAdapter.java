@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -24,12 +25,12 @@ import java.util.ArrayList;
  * Created by tinybian on 2015/12/1.
  */
 public class ClassificationPagerAdapter extends BaseAdapter {
-    ArrayList<ClassificationListItemClass> clsItemList;
-    Context context;
+    private ArrayList<ClassificationListItemClass> clsItemList;
+    private Context context;
 
     private int currentItem = 150;
-    AdsImageHandler adsImageHandler;
-    ViewHolderAdsImage holderAdsImage;//定义在此处 供局部中的内部类访问
+    public AdsImageHandler adsImageHandler;
+    public ViewHolderAdsImage holderAdsImage;//定义在此处 供局部中的内部类访问
 
     public ClassificationPagerAdapter(ArrayList<ClassificationListItemClass> clsItemList, Activity activity){
         this.clsItemList = clsItemList;
@@ -75,23 +76,28 @@ public class ClassificationPagerAdapter extends BaseAdapter {
 
         switch (type){
             case ClassificationFragment.TYPE_CLASSIFICATION_ADS://广告窗
-                Log.d("getView", "executed " + "position:" + Integer.toString(position));
+                //Log.d("getView", "executed " + "position:" + Integer.toString(position));
 
                 if(convertView == null)//避免以下代码在每次getView时都执行
                 {
-                    Log.d("getViewInit", "executed");
+                    //Log.d("getViewInit", "executed");
                     convertView = ((Activity)context).getLayoutInflater().inflate(R.layout.itemview_classification_adsviewpager,null);
+
+                    ArrayList<ImageView> imageList = (ArrayList<ImageView>) clsItemList.get(position).getItem();
                     holderAdsImage = new ViewHolderAdsImage();
+
+                    /*设置viewpager*/
                     holderAdsImage.vp = (ViewPager)convertView.findViewById(R.id.ads_viewpager);
-                    holderAdsImage.vp.setAdapter(new AdsImageAdapter((ArrayList<ImageView>) clsItemList.get(position).getItem()));
+                    holderAdsImage.vp.setAdapter(new AdsImageAdapter(imageList));
                     holderAdsImage.vp.setCurrentItem(currentItem);//设置当前图片
 
                         /*轮播的设置*/
                     holderAdsImage.vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                         @Override
                         public void onPageSelected(int position) {
+                            //Log.d("<<onPageSelected>>", "position="+Integer.toString(position));
+
                             //用户手动改变页面后 发送换页通知请求
-                            Log.d("<<onPageSelected>>", "position="+Integer.toString(position));
                             adsImageHandler.sendMessage(Message.obtain(adsImageHandler, adsImageHandler.MSG_PAGE_CHANGED, position, 0));
                         }
 
@@ -101,10 +107,10 @@ public class ClassificationPagerAdapter extends BaseAdapter {
 
                         @Override
                         public void onPageScrollStateChanged(int state) {
-                            Log.d("<<ScrollStateChanged>>", "state="+Integer.toString(state));
+                            //Log.d("<<ScrollStateChanged>>", "state="+Integer.toString(state));
                             switch (state) {
                                 case ViewPager.SCROLL_STATE_DRAGGING:
-                                    Log.d("SCROLL_STATE_DRAGGING", "invoked");
+                                    //Log.d("SCROLL_STATE_DRAGGING", "invoked");
                                     adsImageHandler.sendEmptyMessage(adsImageHandler.MSG_KEEP_SILENT);
                                     break;
                                 case ViewPager.SCROLL_STATE_IDLE:
@@ -129,7 +135,7 @@ public class ClassificationPagerAdapter extends BaseAdapter {
                 vto.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
                     @Override
                     public boolean onPreDraw() {
-                        Log.d("Globallayoutlistener", "called");
+                        //Log.d("Globallayoutlistener", "called");
                         holderAdsImage.vp.getViewTreeObserver().removeOnPreDrawListener(this);//如果已经有 先remove
                         LinearLayout.LayoutParams linearParams = (LinearLayout.LayoutParams) holderAdsImage.vp.getLayoutParams(); // 取控件vp当前的布局参数
                         linearParams.height = holderAdsImage.vp.getWidth() / 2;

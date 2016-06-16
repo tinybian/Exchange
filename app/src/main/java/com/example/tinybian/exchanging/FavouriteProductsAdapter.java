@@ -71,10 +71,10 @@ public class FavouriteProductsAdapter extends RecyclerView.Adapter<FavouriteProd
         params.width = windowWidth - parent.getPaddingRight() - parent.getPaddingLeft() - productsVH.productImage.getWidth();
         productsVH.infoLinearLayout.setLayoutParams(params);
 
-        /*添加外边距*/
+        /*添加外边距
         RecyclerView.LayoutParams params2 = (RecyclerView.LayoutParams)productsVH.itemLinearLayout.getLayoutParams();
         params2.topMargin = UtilClass.dpToPx(context, 10);
-        productsVH.itemLinearLayout.setLayoutParams(params2);
+        productsVH.itemLinearLayout.setLayoutParams(params2);*/
 
         return productsVH;
     }

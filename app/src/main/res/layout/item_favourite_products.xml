@@ -4,8 +4,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    android:layout_marginTop="10dp"
-    android:background="@color/colorListBackground">
+    android:background="@drawable/cls_linear_selector">
 
     <ImageView
         android:id="@+id/fav_product_image"

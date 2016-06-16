@@ -25,6 +25,7 @@ public class FavouriteProductsFragment extends Fragment {
 
         initData();
         recyclerView = (RecyclerView)rootView.findViewById(R.id.fav_product_list);
+        recyclerView.addItemDecoration(new ItemDivider(this.getContext(), LinearLayoutManager.VERTICAL));
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         recyclerView.setAdapter(new FavouriteProductsAdapter(this.getContext(), productsList));
 

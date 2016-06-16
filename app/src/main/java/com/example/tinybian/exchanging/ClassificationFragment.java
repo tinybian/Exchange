@@ -41,15 +41,13 @@ public class ClassificationFragment extends Fragment {
 
     private void loadImageView(){
         LayoutInflater inflater = LayoutInflater.from(this.getActivity());
-        ImageView imageView1 = (ImageView) inflater.inflate(R.layout.itemview_ads_image, null);
-        ImageView imageView2 = (ImageView) inflater.inflate(R.layout.itemview_ads_image, null);
-        ImageView imageView3 = (ImageView) inflater.inflate(R.layout.itemview_ads_image, null);
-        imageView1.setBackgroundResource(R.drawable.image1);
-        imageView2.setBackgroundResource(R.drawable.image2);
-        imageView3.setBackgroundResource(R.drawable.image3);
-        adsImageList.add(imageView1);
-        adsImageList.add(imageView2);
-        adsImageList.add(imageView3);
+        int[] imageRid = new int[]{ R.drawable.image1, R.drawable.image2, R.drawable.image3 };
+
+        for(int i = 0; i < imageRid.length ; i++){
+            ImageView imageView = (ImageView) inflater.inflate(R.layout.itemview_ads_image, null);
+            imageView.setBackgroundResource(imageRid[i]);
+            adsImageList.add(imageView);
+        }
     }
 
     private void initData(){

@@ -10,9 +10,10 @@
         android:id="@+id/classify_listview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:cacheColorHint="#00000000"
+        android:drawSelectorOnTop="false"
         android:divider="@null"
         android:scrollbars="none">
-
     </ListView>
 
 </LinearLayout>
